@@ -51,7 +51,7 @@ keyboard.modules.append(right)
 # Look here for keycodes: https://github.com/KMKfw/kmk_firmware/blob/main/docs/en/keycodes.md
 # And here for macros: https://github.com/KMKfw/kmk_firmware/blob/main/docs/en/macros.md
 keyboard.keymap = [
-    [KC.LEFT, KC.MACRO_0, KC.RIGHT, KC.MACRO_1]
+    [KC.MACRO_0, KC.SPACE, KC.MACRO_1]
 ]
 
 # Start kmk!
