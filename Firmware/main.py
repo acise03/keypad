@@ -1,61 +1,37 @@
-# You import all the IOs of your board
 import board
-
-# These are imports from the kmk library
 from kmk.kmk_keyboard import KMKKeyboard
 from kmk.scanners.keypad import KeysScanner
 from kmk.keys import KC
-from kmk.modules.macros import Press, Release, Tap, Macros
+from kmk.modules.macros import Macros, Tap
+from kmk.modules.encoder import EncoderHandler
 
-# This is the main instance of your keyboard
 keyboard = KMKKeyboard()
 
-# Add the macro extension
 macros = Macros()
-keyboard.modules.append(macros)
+encoder_handler = EncoderHandler()
+keyboard.modules = [macros, encoder_handler]
 
-# Define your pins here!
+encoder_handler.pins = [(board.GP8, board.GP9, board.GP10)]
+Zoom_in = [KC.LCTRL, KC.EQUAL]
+Zoom_out = [KC.LCTRL, KC.MINUS]
+encoder_handler.map = [
+    ((KC.VOLD, KC.VOLU, KC.MUTE),),
+    ((Tap(Zoom_out), Tap(Zoom_in), KC.NO),),
+    ((KC.A, KC.Z, KC.N1),),
+    ((KC.NO, KC.NO, KC.NO),),
+]
+
 PINS = [board.D2, board.D1]
+keyboard.matrix = KeysScanner(pins=PINS, value_when_pressed=False)
 
-# Tell kmk we are not using a key matrix
-keyboard.matrix = KeysScanner(
-    pins=PINS,
-    value_when_pressed=False,
-)
+macros.macros = [
+    Tap([KC.LCTRL, KC.LEFT]),   # MACRO_0
+    Tap([KC.LCTRL, KC.RIGHT]),  # MACRO_1
+]
 
-# Here you define the buttons corresponding to the pins
-
-
-class LeftIntense(Macros):
-    def __init__(self):
-        super().__init__()
-        self.macros = [
-            [KC.LCTRL, KC.LEFT],
-        ]
-
-class RightIntense(Macros):
-    def __init__(self):
-        super().__init__()
-        self.macros = [
-            [KC.LCTRL, KC.RIGHT],
-        ]
-
-left = LeftIntense()
-keyboard.modules.append(left)
-
-right = RightIntense()
-keyboard.modules.append(right)
- 
-
-
-# Look here for keycodes: https://github.com/KMKfw/kmk_firmware/blob/main/docs/en/keycodes.md
-# And here for macros: https://github.com/KMKfw/kmk_firmware/blob/main/docs/en/macros.md
 keyboard.keymap = [
     [KC.MACRO_0, KC.SPACE, KC.MACRO_1]
 ]
 
-# Start kmk!
 if __name__ == '__main__':
     keyboard.go()
-
-

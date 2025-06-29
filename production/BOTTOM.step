@@ -10,7 +10,7 @@ FILE_DESCRIPTION(
 
 FILE_NAME(
 /* name */ 'Bottom.step',
-/* time_stamp */ '2025-06-26T17:12:07-04:00',
+/* time_stamp */ '2025-06-28T23:47:32-04:00',
 /* author */ (''),
 /* organization */ (''),
 /* preprocessor_version */ 'ST-DEVELOPER v20.1',
@@ -1014,18 +1014,18 @@ SOLID_ANGLE_UNIT()
 #947=SHAPE_REPRESENTATION('',(#560,#616),#935);
 #948=SHAPE_REPRESENTATION('',(#561),#936);
 #949=PRODUCT_DEFINITION_CONTEXT('part definition',#957,'design');
-#950=PRODUCT_DEFINITION('keyboard','keyboard v1',#952,#949);
+#950=PRODUCT_DEFINITION('keyboard','keyboard v6',#952,#949);
 #951=PRODUCT_DEFINITION('acise03','acise03',#953,#949);
 #952=PRODUCT_DEFINITION_FORMATION('',$,#959);
 #953=PRODUCT_DEFINITION_FORMATION('',$,#960);
-#954=PRODUCT_RELATED_PRODUCT_CATEGORY('keyboard v1','keyboard v1',(#959));
+#954=PRODUCT_RELATED_PRODUCT_CATEGORY('keyboard v6','keyboard v6',(#959));
 #955=PRODUCT_RELATED_PRODUCT_CATEGORY('acise03','acise03',(#960));
 #956=APPLICATION_PROTOCOL_DEFINITION('international standard',
 'automotive_design',2009,#957);
 #957=APPLICATION_CONTEXT(
 'Core Data for Automotive Mechanical Design Process');
 #958=PRODUCT_CONTEXT('part definition',#957,'mechanical');
-#959=PRODUCT('keyboard','keyboard v1',$,(#958));
+#959=PRODUCT('keyboard','keyboard v6',$,(#958));
 #960=PRODUCT('acise03','acise03',$,(#958));
 #961=PRESENTATION_STYLE_ASSIGNMENT((#962));
 #962=SURFACE_STYLE_USAGE(.BOTH.,#963);
